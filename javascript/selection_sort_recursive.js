@@ -1,5 +1,17 @@
 function selectionSortRecursive(arr) {
-  // type your code here
+  if (arr.length === 1) {
+    return arr; //sorted
+  }
+
+  let min = Math.min(...arr);
+  let idx = arr.indexOf(min)
+
+  arr.splice(idx, 1)
+
+  let sorted = selectionSortRecursive(arr)
+
+  sorted.unshift(min);
+  return sorted;
 }
 
 if (require.main === module) {
